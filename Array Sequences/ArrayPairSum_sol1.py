@@ -1,6 +1,7 @@
 def arrayPairSum(lst,sum):
     
     kv={}
+    output = set()
     for ele in lst:
         if ele in kv:
             #diff = sum-ele
@@ -14,6 +15,7 @@ def arrayPairSum(lst,sum):
     for ele in kv:
         if(kv[ele][1] > 1):
             if(kv[ele][0] == ele):
-                print("(%s,%s)" %(ele,kv[ele][0]))
+                output.add((min(ele,kv[ele][0]),max(ele,kv[ele][0])))
         if (kv[ele][0]) in lst:
-            print("(%s,%s)" %(ele,kv[ele][0]))
+            output.add((min(ele,kv[ele][0]),max(ele,kv[ele][0])))
+    print('\n'.join(map(str,list(output))))
